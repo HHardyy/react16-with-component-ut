@@ -3,7 +3,7 @@ import Ioicons from 'react-ionicons';
 
 const CreateBtn = ({ onClick }) => (
   <div style={{margin:'2em 0', width:'100%'}}>
-    <button type="button" class="btn btn-primary" style={{width:'100%'}} onClick={onClick}>
+    <button type="button" className="btn btn-primary" style={{width:'100%'}} onClick={onClick}>
       <Ioicons
         className="rounded-circle"
         fontSize="25px"

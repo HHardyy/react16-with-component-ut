@@ -12,6 +12,24 @@ class MonthPicker extends React.Component {
     }
   }
 
+  componentDidMount(){
+    document.addEventListener('click',this.handelClick, false) // true - 事件句柄在捕获阶段执行  false- 默认。事件句柄在冒泡阶段执行
+  }
+  componentWillUnmount(){
+    document.removeEventListener('click', this.handelClick, false)
+  }
+
+  handelClick = (event) => {
+    // 如果节点上有个contains包括点击的内容，就不做任何处理   contains：检测一个函数包含在另一个元素之内
+    if(this.node.contains(event.target)){
+      return 
+    }else{
+      this.setState({
+        isOpen:false
+      })
+    }
+  }
+
   toggleDropdown = (event) => {
     event.preventDefault()
     this.setState({
@@ -39,7 +57,7 @@ class MonthPicker extends React.Component {
     })
 
     return (
-      <div className="dropdown month-picker-component">
+      <div className="dropdown month-picker-component" ref={(ref)=>this.node = ref}>
         <button 
         className="btn btn-lg btn-seconday dropdown-toggle"
         onClick={this.toggleDropdown}

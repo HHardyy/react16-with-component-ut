@@ -56,7 +56,7 @@ class Home extends React.Component{
     super(props)
     this.state = {
       items,
-      currentDate:parseToYearAndMonth(),
+      currentDate:parseToYearAndMonth('2020/3/22'),
       tabView:LIST_VIEW
     }
   }
@@ -148,7 +148,7 @@ class Home extends React.Component{
             onDeleteItem={this.deleteItem}
           />
           ) : (
-            <h1>chart list</h1>
+            <h1 className="chart-title">chart list</h1>
           )}
         </div>
       </React.Fragment>
